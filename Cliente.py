@@ -56,7 +56,7 @@ class Cliente():
                 estaQuantidade = estaQuantidade + 1.5
                 if cada.getDiasAlocados()>3:
                     estaQuantidade = estaQuantidade + (cada.getDiasAlocados()-3)*1.5
-
+            totalQuantidade = estaQuantidade + totalQuantidade
             #mostrar informacoes para esta locacao
             resultado = resultado + ' '+cada.getFilme().getTitulo()+' '+ str(estaQuantidade)+'\n'
 
