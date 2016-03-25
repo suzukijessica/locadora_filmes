@@ -20,6 +20,20 @@ class Cliente():
         self._alocacoes.append(arg)
     def getNome(self):
         return self._nome
+    def contarPontos(self):
+        alocacoes = iter(self._alocacoes)
+        pontosFrequenciaAlocacao = 0
+        resultado = ''
+
+        for aloc in alocacoes:
+            #adicionar pontos de locador frequente
+            pontosFrequenciaAlocacao = pontosFrequenciaAlocacao + 1
+            #adicionar bonus para uma locação de dois dias para lançamentos
+            if aloc.getFilme().getPrecoCodigo() == Filme.NOVA_RELEASE and aloc.getDiasAlocados()>1:
+                pontosFrequenciaAlocacao = pontosFrequenciaAlocacao +1
+             #mostrar informacoes para esta locacao
+        resultado = resultado + 'Voce ganhou '+ str(pontosFrequenciaAlocacao)+' pontos de locacao.'
+        return resultado
     def Expresao(self):
         totalQuantidade = 0.0
         pontosFrequenciaAlocacao = 0
@@ -43,17 +57,11 @@ class Cliente():
                 if cada.getDiasAlocados()>3:
                     estaQuantidade = estaQuantidade + (cada.getDiasAlocados()-3)*1.5
 
-            #adicionar pontos de locador frequente
-            pontosFrequenciaAlocacao = pontosFrequenciaAlocacao + 1
-            #adicionar bonus para uma locação de dois dias para lançamentos
-            if cada.getFilme().getPrecoCodigo() == Filme.NOVA_RELEASE and cada.getDiasAlocados()>1:
-                pontosFrequenciaAlocacao = pontosFrequenciaAlocacao +1
             #mostrar informacoes para esta locacao
             resultado = resultado + ' '+cada.getFilme().getTitulo()+' '+ str(estaQuantidade)+'\n'
 
         #adicionar rodape do relatorio
-        resultado = resultado + "Quantia devida é "+ str(totalQuantidade)+"\n"
-        resultado = resultado + 'Voce ganhou '+ str(pontosFrequenciaAlocacao)+' pontos de locacao.'
+        resultado = resultado + "Quantia devida é "+ str(totalQuantidade)
         return resultado
 
 if __name__ == '__main__':
@@ -69,3 +77,4 @@ if __name__ == '__main__':
     meuCliente.addicionarAlocacao(alo03)
 
     print meuCliente.Expresao()
+    print meuCliente.contarPontos()
