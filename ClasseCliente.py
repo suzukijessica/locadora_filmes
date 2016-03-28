@@ -9,7 +9,7 @@ CRIANCAS = 2
 REGULAR = 0
 NOVA_RELEASE = 1
 
-class Cliente():
+class ClasseCliente():
     _nome = None
     _alocacoes = []
 
@@ -65,7 +65,7 @@ class Cliente():
         return resultado
 
 if __name__ == '__main__':
-    meuCliente = Cliente('Ruben')
+    meuCliente = ClasseCliente('Ruben')
     print meuCliente.getNome()
     fil01 = Filme('Titanic',2)
     alo01 = Alocacao(fil01,5) #filme, dias locados

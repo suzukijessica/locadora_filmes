@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-class Filme:
+class ClasseFilme:
     CRIANCAS = 2
     REGULAR = 0
     NOVA_RELEASE = 1

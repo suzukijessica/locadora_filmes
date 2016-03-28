@@ -5,7 +5,7 @@ CRIANCAS = 2
 REGULAR = 0
 NOVA_RELEASE = 1
 
-class Alocacao:
+class ClasseAlocacao:
     def __init__(self,filme, diasAlocado): #filme de tipo Filme
         self._filme = filme #Tipo filme
         self._diasAlocados = diasAlocado
