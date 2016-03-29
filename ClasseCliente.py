@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 #import java.util.Enumeration;
 #import java.util.Vector;
-from Filme import Filme
-from Alocacao import Alocacao
+from ClasseFilme import ClasseFilme
+from ClasseAlocacao import ClasseAlocacao
 import itertools
 
 CRIANCAS = 2
@@ -32,7 +32,7 @@ class ClasseCliente():
             #adicionar pontos de locador frequente
             pontosFrequenciaAlocacao = pontosFrequenciaAlocacao + 1
             #adicionar bonus para uma locação de dois dias para lançamentos
-            if aloc.getFilme().getPrecoCodigo() == Filme.NOVA_RELEASE and aloc.getDiasAlocados()>1:
+            if aloc.getFilme().getPrecoCodigo() == ClasseFilme.NOVA_RELEASE and aloc.getDiasAlocados()>1:
                 pontosFrequenciaAlocacao = pontosFrequenciaAlocacao +1
              #mostrar informacoes para esta locacao
         resultado = resultado + 'Voce ganhou '+ str(pontosFrequenciaAlocacao)+' pontos de locacao.'
@@ -46,7 +46,7 @@ class ClasseCliente():
         #while(alocacoes):
         for cada in alocacoes:
             estaQuantidade = 0.0
-            estaQuantidade = float(cada.quantidadePara())
+            estaQuantidade = float(cada.getCusto())
             resultado = resultado + ' '+cada.getFilme().getTitulo()+' '+ str(estaQuantidade)+'\n'
             totalQuantidade = estaQuantidade + totalQuantidade
         #adicionar rodape do relatorio
@@ -56,10 +56,10 @@ class ClasseCliente():
 if __name__ == '__main__':
     meuCliente = ClasseCliente('Ruben')
     print meuCliente.getNome()
-    fil01 = Filme('Titanic',2)
-    alo01 = Alocacao(fil01,5) #filme, dias locados
-    alo02 = Alocacao(fil01,2) #filme, dias locados
-    alo03 = Alocacao(fil01,1) #filme, dias locados
+    fil01 = ClasseFilme('Titanic',2)
+    alo01 = ClasseAlocacao(fil01,5) #filme, dias locados
+    alo02 = ClasseAlocacao(fil01,2) #filme, dias locados
+    alo03 = ClasseAlocacao(fil01,1) #filme, dias locados
 
     meuCliente.addicionarAlocacao(alo01)
     meuCliente.addicionarAlocacao(alo02)

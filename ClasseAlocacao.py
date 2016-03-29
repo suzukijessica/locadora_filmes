@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from Filme import Filme
+from ClasseFilme import ClasseFilme
 CRIANCAS = 2
 REGULAR = 0
 NOVA_RELEASE = 1
@@ -9,11 +9,14 @@ class ClasseAlocacao:
     def __init__(self,filme, diasAlocado): #filme de tipo Filme
         self._filme = filme #Tipo filme
         self._diasAlocados = diasAlocado
+
     def getDiasAlocados(self):
         return self._diasAlocados
+
     def getFilme(self):
         return self._filme
-    def quantidadePara(self):
+
+    def getCusto(self):
         estaQuantidade = 0.0
         #cada = next(alocacoes) #cada tipo alocacao
         #cada dever ser de tipo alocacao

@@ -10,12 +10,15 @@ class ClasseFilme:
     def __init__(self,titulo,precoCodigo):
         self._titulo = titulo
         self._precoCodigo = precoCodigo
+
     def getPrecoCodigo(self):
         return self._precoCodigo
+
     def setPrecoCodigo(self, arg):
         self._precoCodigo = arg
+
     def getTitulo(self):
         return self._titulo
 
 if __name__ == '__main__':
-    meuFilme = Filme('titanic',3)
+    meuFilme = ClasseFilme('titanic',3)
